@@ -1,0 +1,85 @@
+"""
+You're head of security at a casino that has money being stolen from it.
+You get the data in the form of strings and you have to set off an alarm if a thief is detected.
+If there is no guard between thief and money, return "ALARM!"
+If the money is protected, return "Safe"
+String Components
+
+x - Empty Space
+T - Thief
+G - Guard
+$ - Money
+
+Examples
+
+security("xxxxTTxGxx$xxTxxx") ➞ "ALARM!"
+
+security("xxTxxG$xxxx$xxxx") ➞ "Safe"
+
+security("TTxxxx$xxGxx$Gxxx") ➞ "ALARM!"
+
+
+"""
+
+Answer: Not solved yet 
+
+
+
+
+
+
+Resolution./How i think:
+
+
+# to start this, i need to find how to split a string, follow my example:
+-----------------------------------------------------------------------
+start = 'asdf=5;'
+end = '123jasd'
+s = 'asdf=5;iwantthis123jasd'
+
+
+# in split function, the parameter received delete from the string
+# and make a list without him and the rest 
+# output: ['', 'iwantthis123jasd']   
+# to acess the value what we wanted we need to search the postion, using the [] to find
+# print(s.split(start)[0])
+# to continue this we need to do the same process with the end of the substring
+# but now with the [1], because what we want is in the start, not in the final \
+# print(s.split(end)[0])
+# now, its concatenate the 2 process
+# print(s.split(start))[1].split(end)[0])
+# The process of print(((s.split(start))[1]).split(end)[0]) :
+# 1- ['', 'iwantthis123jasd'] 
+# 2- 'iwantthis123jasd'
+# 3- ['iwantthis', '']
+# 4- 'iwantthis'
+
+print(((s.split(start))[1]).split(end)[0])
+-----------------------------------------------------------------------------
+# to continue i thought to exclude the 'x' spaces, because they not contribute 
+# with the process
+x = 'x'
+
+ex: str = 'TTxxxx$xxGxx$Gxxx'
+
+lista : list = (ex.split(x))# output: ['TT', '', '', '', '$', '', 'G', '', '$G', '', '', '']
+conc : str = "".join(lista) # output: TT$G$G
+
+print(lista)
+
+-------------------------------------------------------------------------------------
+# After this 2 process, i found this website-https://www.dotnetperls.com/between-before-after-python
+# after yhe website, the function find give me an ideia, but its not with find so i tried with split
+
+
+
+
+
+
+
+
+
+
+
+
+
