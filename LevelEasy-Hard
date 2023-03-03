@@ -1,0 +1,202 @@
+1. Write a Python program that calculates the area of a circle based on the radius entered by the user. Go to the editor
+Sample Output :
+
+def area(r):
+  pi = 3.14159
+  return print(((r**2)* pi))
+  
+area(1.1)
+
+2. Write a Python program that concatenates all elements in a list into a string and returns it.
+list = []
+def concatenate(list):
+    """  relembrando,cada item da lista vai virar string
+        se todas já fossem str, nao precisaria fazer a conversao
+        mas como podem ser tipo int float ou boolean precisamos fazer
+        a conversão
+        """
+    string = ' '.join(map(str,list))
+    return f'{string}'
+
+
+list = [1,2,4,6,8,'vittzx','nem tente','chora','shenes']
+print(concatenate(list))
+
+
+3.Write a Python program to square the elements of a list using the map() function
+
+
+lista = [1,2,4,5,67,7]
+print(list(map(lambda x: x**2 , lista)))
+
+4. Write a Python program to convert all the characters into uppercase and lowercase and eliminate duplicate letters from a given sequence. Use the map() function
+
+def cx_alta_baixa(s):
+    return str(s).upper(), str(s).lower()
+
+""" para nao haver repeticao, usar o o set {} """
+chrars = {'a', 'b', 'E', 'f', 'a', 'i', 'o', 'U', 'a'} 
+print("Original Characters:\n",chrars)
+lista = ['a','B','f','k']
+#caixa_alta = tuple(map(cx_alta_baixa,lista))
+print(tuple(map(cx_alta_baixa,lista)))
+
+7.Write a Python program to add two given lists and find the difference between them. Use the map() function
+
+def addition_subtrction(x, y):
+    return x + y, x - y
+ 
+nums1 = [6, 5, 3, 9]
+nums2 = [0, 1, 7, 7]
+print("Original lists:")
+print(nums1)
+print(nums2)
+result = map(addition_subtrction, nums1, nums2)
+print("\nResult:")
+print(list(result))
+
+resposta do site
+—-------------------------------------------
+list_1 = [10, 15, 20, 25, 30, 35, 40]
+list_2 = [25, 40, 35]
+
+def difference(list_1, list_2):
+    list_1 = set(list_1)
+    list_2 = set(list_2)
+    dif = list_1 - list_2
+    print(list(dif))
+
+difference(list_1,list_2)
+
+#print(list(map(difference,list_1,list_2)))
+
+minha resposta
+—-------------------------------------------
+
+8.Write a Python program to compute the square of the first N Fibonacci numbers, using the map function and generate a list of the numbers
+n = int(input("Insira a posicao do numero desejado para gerar a sequencia de fibonnaci"))
+
+n1 = 1
+n2 = 1
+contador = 0
+a = [n1+n2 for i in range(0,n)]
+lista = [1,1]
+for i in range(0,n):
+    contador = n1 + n2
+    n1 = contador
+    n2 = contador - n2
+    lista.append(contador)
+print(list(map(lambda x : x*x,lista)))
+SEQUENCIA DE FIBONACCI com numeros ao quadrado
+______________________________________________________
+9 - Faca uma funcao que seja Fatorial do Fatorial
+from functools import reduce
+def fact(n):
+    while n >= 0:
+        lista = []
+        lista_final = []
+        for i in range(1,n+1):
+            lista.append(i)
+            lista_final.append(reduce(lambda x, y: x * y, lista))
+        n -= 1
+        return reduce(lambda x,y:x*y,lista_final)
+
+print(fact(4))
+fact_of_fact(4) ➞ 288
+# 4! * 3! * 2! * 1! = 288
+
+
+def ft(n):
+    f = count = 1
+    for i in range(1, n + 1):
+        f *= i
+        count *= f
+    return count
+
+Remove The Word!
+Create a function that takes a list and string. The function should remove the letters in the string from the list, and return the list.
+
+Examples
+remove_letters(["s", "t", "r", "i", "n", "g", "w"], "string") ➞ ["w"]
+
+remove_letters(["b", "b", "l", "l", "g", "n", "o", "a", "w"], "balloon") ➞ ["b", "g", "w"]
+
+remove_letters(["d", "b", "t", "e", "a", "i"], "edabit") ➞ []
+
+My Answer: 
+def r(lista: list,palavra :str) -> list:
+    lista = set(lista)
+    palavra = set(palavra)
+    diferenca = lista - palavra
+    return list(diferenca) 
+
+50% correct
+
+Correct Answer:
+	
+def remove_letters(letters, word):
+	for i in word:
+		if i in letters:
+			letters.remove(i)
+	return letters
+
+def sum_odd_and_even(lst):
+	even = sum([i for i in lst if i % 2 == 0]) 
+	odd = sum([i for i in lst if i % 2 != 0]) 
+	return [even, odd]
+
+
+def divisible_by_b(a,b):
+    while a % b != 0:
+        if (a % b) != 0:
+            a += 1
+        else:
+            pass
+    return a
+
+—------------------------------------------------
+Censurar palavra na frase 
+
+def censor_string(txt, lst, char):
+    for word in lst:
+        txt = txt.replace(word, char * len(word))
+    return txt
+print(censor_string('Hoje é um dia lindo',['dia','lindo'],'0'))
+—-----------------------------------------------------------------------------------------
+
+Write a function that returns True if two arrays, when combined, form a consecutive sequence. A consecutive sequence is a sequence without any gaps in the integers, e.g. 1, 2, 3, 4, 5 is a consecutive sequence, but 1, 2, 4, 5 is not.
+
+def l(l1:list, l2:list) -> bool:
+    l3 = l1+ l2
+    return sorted(l3) == list(range(min(l3), max(l3)+ 1))
+
+print(l([7, 4, 5, 1], [2, 3, 6])) # True
+print(l([1, 4, 6, 5], [2, 7, 8, 9])) # False
+print(l([44, 46], [45])) # True
+print(l([1, 4, 5, 6], [2, 3, 7, 8, 10])) # False
+
+
+—------------------------------------------------------------------------------------------------
+
+Make a function that encrypts a given input with these steps:
+
+Input: "apple"
+
+Step 1: Reverse the input: "elppa"
+
+Step 2: Replace all vowels using the following chart:
+
+a => 0, e => 1, i => 2 , o => 2, u => 3
+
+# "1lpp0"
+Step 3: Add "aca" to the end of the word: "1lpp0aca"
+
+Output: "1lpp0aca"
+
+def kencrypit(s: str) -> str:
+    d : dict = {'a': "0", 'e': '1', 'i':'2', 'o': '2', "u": '3'}
+    l : list = list(s[::-1])
+    new = [d.get(i, i) for i in l]
+    ln = "".join([str(i) for i in new])
+    ln += 'aca'
+    return ln
