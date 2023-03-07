@@ -1,0 +1,77 @@
+xercicio 1)
+
+def fib(num: int) -> str and list:
+    n1 = 0
+    n2 = 1
+    add = 0
+    lista = [0]
+    for i in range(0, num+1):
+        add = n1 + n2
+        n1 = add
+        n2 = add - n2
+        lista.append(add)
+    if num in lista:
+        return f"Esta presente {lista}"
+
+    else:
+        return f"Nao esta presente {lista}"
+
+print(fib(5)) # correto
+print(fib(4)) # errado
+
+# -----------------------------------------------------------------------------------------------------------------#
+Exercicio 3)
+
+import json
+
+with open("arq.json",'r') as arq:
+        traduzir = json.load(arq)                               # traduz um arq json para um dict
+        lucro: list = [valor for i, valor in traduzir.items()]  # pega so os valores
+        convercao: list = list(map(int, lucro))                 # retorna todas as str em numeros na lista
+        for i in convercao:
+            if i == 0:
+                continue
+            # print(i) mostra todos os dados da lista, menos os que nao tem receita
+            media: float = (sum(convercao)/len(convercao))  # soma todos os dados da lista, menos os que nao tem receita
+            # aqui temos a media
+        print(f"A média desses dias foi de {round(media)} reais."
+              f" ALERTA: Pode ter variacao máxima de 50 centavos.")
+
+        acima_media = []
+        for i in convercao:
+            if i > round(media):
+                acima_media.append(i)
+
+        print(f"Tivemos {len(acima_media)} acima da média."
+              f"Segue o faturamento dos dias que obtveram um total maior que a média: {acima_media}")
+
+# -----------------------------------------------------------------------------------------------------------------#
+Exercicio 4)
+
+
+estados: dict = {"SP": 67836.43, "RJ": 36678.66, "MG": 29229.88, "ES": 27165.48, "Outros": 19849.53}
+total: float = sum(estados.values())
+
+for chave, valor in estados.items():
+    print(f'O estado {chave} contribui com {round((valor * 100)/ total)}%')
+
+
+# string: str = input("Informe o numero ou texto que deseja ser revertido: ")
+
+def reverter(string: str) -> str:
+    return f"A reversao do item é {string[::-1]}"
+
+# print(reverter(string))
+
+
+# -------------------------------------------------------------------------------------------------------------------#
+
+Exercicio 5)
+
+string: str = input("Informe o numero ou texto que deseja ser revertido: ")
+
+def reverter(string: str) -> str:
+    return f"A reversao do item é {string[::-1]}"
+
+print(reverter(string))
+
