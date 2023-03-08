@@ -21,7 +21,20 @@ security("TTxxxx$xxGxx$Gxxx") ➞ "ALARM!"
 
 """
 
-Answer: Not solved yet 
+Answer: 
+
+def security(situation: str) -> str:
+    # Find the indices of the thief, guard, and money in the string
+    thief_idx = situation.index('T')
+    guard_idx = situation.index('G')
+    money_idx = situation.index('$')
+    
+    # Check whether the guard is between the thief and the money
+    if thief_idx < guard_idx < money_idx:
+        return "Safe"
+    else:
+        return "ALARM!"
+    
 
 
 
@@ -72,6 +85,20 @@ print(lista)
 # after yhe website, the function find give me an ideia, but its not with find so i tried with split
 
 
+after few times, i wrote this code
+
+def security(situation: str) -> str:
+    # Find the indices of the thief, guard, and money in the string
+    thief_idx = situation.index('T')
+    guard_idx = situation.index('G')
+    money_idx = situation.index('$')
+    
+    # Check whether the guard is between the thief and the money
+    if thief_idx < guard_idx < money_idx:
+        return "Safe"
+    else:
+        return "ALARM!"
+    
 
 
 
