@@ -200,3 +200,72 @@ def kencrypit(s: str) -> str:
     ln = "".join([str(i) for i in new])
     ln += 'aca'
     return ln
+
+
+
+
+---------------------------------------------------------------
+# Create a function that takes two number strings and returns their sum as a string.
+
+def sum_str(x:str, y:str) -> float and str:
+    if len(x) !=0 and len(y) !=0:
+        float(x)
+        float(y)
+        return x + y
+    else:
+        return "Non valid"
+  
+"""
+Write a function that returns True if two arrays, when combined, form a consecutive sequence. 
+A consecutive sequence is a sequence without any gaps in the integers, e.g. 1, 2, 3, 4, 5 is a consecutive sequence, but 1, 2, 4, 5 is not.
+"""  
+def consec(x: list, y: list) -> bool:
+    z: list = x + y     
+    z.sort()
+    for i in range(len(z)-1):
+          if z[i]+ 1 != z[i+1]:
+            return False
+    return True
+
+
+# Create a function that takes a string as an argument and returns the Morse code equivalent.
+
+char_to_dots = {
+  'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+  'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 
+  'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',  
+  'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+  'Y': '-.--', 'Z': '--..', ' ': ' ', '0': '-----',
+  '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+  '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+  '&': '.-...', "'": '.----.', '@': '.--.-.', ')': '-.--.-', '(': '-.--.',
+  ':': '---...', ',': '--..--', '=': '-...-', '!': '-.-.--', '.': '.-.-.-',
+'-': '-....-', '+': '.-.-.', '"': '.-..-.', '?': '..--..', '/': '-..-.'
+}
+
+correct answer:
+
+def encode_morse(message):
+  nl = []
+  global char_to_dots
+  char_to_dots = {k.lower(): v for k, v in char_to_dots.items()}
+
+  for w in message.lower():
+    for c in w:
+      if c in char_to_dots:
+        nl.append(char_to_dots[c])
+  return ' '.join(nl)
+
+
+print(encode_morse("HELP ME !"))
+
+
+how i did:
+def morse(x: str) -> str:
+
+   a: list  = x.split()
+   y: list = []
+    for i in range(len(a)):
+      y.append(char_to_dots[i])
+    return " ".join(y)
+        
