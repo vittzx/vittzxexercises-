@@ -329,3 +329,20 @@ tic_tac_toe([
   ["O", "X", "O"],
   ["X", "O", "#"]
 ]) ➞ "It's a Tie"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------        
+Create a function that takes an integer n and returns the factorial of factorials. See below examples for a better understanding:
+
+Examples
+fact(4) ➞ 288
+# 4! * 3! * 2! * 1! = 288
+
+def fact(n):
+    result = []
+    b = [result.append(y) for x in range(1,n+1) for y in range(1,x+1)]
+    c = lambda x,y: x * y
+    aws = reduce(c,result)
+    print(b)
+    return print(aws)
+fact(4)
+
